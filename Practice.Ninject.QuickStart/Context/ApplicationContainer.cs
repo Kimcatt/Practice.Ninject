@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Practice.Ninject.QuickStart.Soldier;
+using Practice.Ninject.QuickStart.Weapon;
 
 namespace Practice.Ninject.QuickStart.Context
 {
@@ -20,11 +22,19 @@ namespace Practice.Ninject.QuickStart.Context
 
         private global::Ninject.IKernel kernal = new global::Ninject.StandardKernel();
 
-        public void Init()
+        public void BuildComponents()
         {
             kernal.Bind<Weapon.ISword>().To<Weapon.BronzeSword>();
             kernal.Bind<Soldier.JuniorSoldier>().ToSelf();
         }
+
+        public void BuildComponentsII()
+        {
+            kernal.Bind<Weapon.IWeapon>().To<Weapon.BronzeSword>();
+            kernal.Bind<Weapon.IWeapon>().To<Weapon.BronzeDagger>();
+            kernal.Bind<IntermediateSoldier>().ToSelf();
+        }
+
 
         public T Resolve<T>() where T : class
         {

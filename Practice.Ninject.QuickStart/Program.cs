@@ -13,8 +13,8 @@ namespace Practice.Ninject.QuickStart
     {
         static void Main(string[] args)
         {
-            ApplicationContainer.Current.Init();
-            var soldier = ApplicationContainer.Current.Resolve<JuniorSoldier>();
+            ApplicationContainer.Current.BuildComponentsII();
+            var soldier = ApplicationContainer.Current.Resolve<IntermediateSoldier>();
             soldier.Attack("xiaoming");
         }
     }

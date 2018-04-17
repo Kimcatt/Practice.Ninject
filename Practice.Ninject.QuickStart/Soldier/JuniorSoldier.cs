@@ -10,6 +10,8 @@ namespace Practice.Ninject.QuickStart.Soldier
     {
         private Weapon.ISword sword;
 
+        public JuniorSoldier() { }
+
         public JuniorSoldier(Weapon.ISword sword)
         {
             this.sword = sword;
@@ -17,6 +19,10 @@ namespace Practice.Ninject.QuickStart.Soldier
 
         public override void Attack(string target)
         {
+            if (sword == null)
+            {
+                throw new ArgumentNullException("sword");
+            }
             this.sword.Chop(target);
         }
     }
