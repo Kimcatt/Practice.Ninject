@@ -13,9 +13,17 @@ namespace Practice.Ninject.QuickStart
     {
         static void Main(string[] args)
         {
-            ApplicationContainer.Current.BuildComponentsII();
+            ApplicationContainer.Current.LoadSoldierModule();
             var soldier = ApplicationContainer.Current.Resolve<IntermediateSoldier>();
             soldier.Attack("xiaoming");
+            JuniorSoldier juniorSoldier = ApplicationContainer.Current.Resolve<JuniorSoldier>();
+            juniorSoldier.Attack("xiaonan");
+
+            IntermediateSwordMan swordman = ApplicationContainer.Current.Resolve<IntermediateSwordMan>();
+            swordman.Attack("xiaolin");
+
+            swordman = ApplicationContainer.Current.Resolve<IntermediateSwordMan>();
+            swordman.Attack("xiaolin2");
         }
     }
 }

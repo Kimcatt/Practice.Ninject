@@ -48,14 +48,17 @@
   <ItemGroup>
     <Compile Include="Context\ApplicationContainer.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Context\Module\SoldierModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soldier\IntermediateSoldier.cs" />
+    <Compile Include="Soldier\IntermediateSwordMan.cs" />
     <Compile Include="Soldier\JuniorSoldier.cs" />
     <Compile Include="Soldier\SoldierBase.cs" />
     <Compile Include="Weapon\BronzeDagger.cs" />
     <Compile Include="Weapon\BronzeSword.cs" />
     <Compile Include="Weapon\IDagger.cs" />
+    <Compile Include="Weapon\IronSword.cs" />
     <Compile Include="Weapon\ISword.cs" />
     <Compile Include="Weapon\IWeapon.cs" />
   </ItemGroup>

@@ -16,7 +16,7 @@ namespace Practice.Ninject.QuickStart.Soldier
         public void Arm(IWeapon[] weapons)
         {
             this.weapons = weapons;
-            Console.WriteLine("The intermediate soldier armed...");
+            Console.WriteLine("The intermediate soldier #{0} armed...", GetHashCode());
         }
 
         public IntermediateSoldier() { }
@@ -24,18 +24,18 @@ namespace Practice.Ninject.QuickStart.Soldier
         public IntermediateSoldier(IWeapon[] weapons)
         {
             this.weapons = weapons;
-            Console.WriteLine("The intermediate soldier joined...");
+            Console.WriteLine("The intermediate soldier #{0} joined...", GetHashCode());
         }
 
         public override void Attack(string target)
         {
-            Console.WriteLine("An intermediate soldier #{0} begins attack ", this.GetHashCode());
+            Console.WriteLine("The intermediate soldier #{0} begins attack ", this.GetHashCode());
             foreach (var weapon in weapons)
             {
                 (weapon as IDagger)?.Stab(target);
                 (weapon as ISword)?.Chop(target);
             }
-            Console.WriteLine("An intermediate soldier #{0} ends attack ", this.GetHashCode());
+            Console.WriteLine("The intermediate soldier #{0} ends attack {1}", this.GetHashCode(), Environment.NewLine);
         }
     }
 }

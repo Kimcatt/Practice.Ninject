@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Practice.Ninject.QuickStart.Weapon
 {
-    public class BronzeDagger : IDagger
+    public class IronSword : ISword
     {
-        public void Stab(string target)
+        public void Chop(string target)
         {
-            Console.WriteLine("Stabbed {0} hard with a dagger #{1}...", target, this.GetHashCode());
+            Console.WriteLine("Chopped {0} hard with a iron sword #{1}...", target, this.GetHashCode());
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
 
 namespace Practice.Ninject.QuickStart.Soldier
 {
@@ -12,18 +13,17 @@ namespace Practice.Ninject.QuickStart.Soldier
 
         public JuniorSoldier() { }
 
-        public JuniorSoldier(Weapon.ISword sword)
+        public JuniorSoldier([Named(nameof(Weapon.IronSword))]Weapon.ISword sword)
         {
             this.sword = sword;
+            Console.WriteLine("The junior soldier #{0} joined...", GetHashCode());
         }
 
         public override void Attack(string target)
         {
-            if (sword == null)
-            {
-                throw new ArgumentNullException("sword");
-            }
-            this.sword.Chop(target);
+            Console.WriteLine("The junior soldier #{0} begins attack...", GetHashCode());
+            this.sword?.Chop(target);
+            Console.WriteLine("The junior soldier #{0} ends attack...{1}", GetHashCode(), Environment.NewLine);
         }
     }
 }

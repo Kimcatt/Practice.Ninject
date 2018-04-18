@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Practice.Ninject.QuickStart.Soldier;
 using Practice.Ninject.QuickStart.Weapon;
+using Practice.Ninject.QuickStart.Context.Module;
 
 namespace Practice.Ninject.QuickStart.Context
 {
@@ -28,11 +29,9 @@ namespace Practice.Ninject.QuickStart.Context
             kernal.Bind<Soldier.JuniorSoldier>().ToSelf();
         }
 
-        public void BuildComponentsII()
+        public void LoadSoldierModule()
         {
-            kernal.Bind<Weapon.IWeapon>().To<Weapon.BronzeSword>();
-            kernal.Bind<Weapon.IWeapon>().To<Weapon.BronzeDagger>();
-            kernal.Bind<IntermediateSoldier>().ToSelf();
+            kernal.Load<Module.SoldierModule>();
         }
 
 

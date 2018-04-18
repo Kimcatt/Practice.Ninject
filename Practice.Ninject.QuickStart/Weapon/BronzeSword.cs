@@ -10,7 +10,7 @@ namespace Practice.Ninject.QuickStart.Weapon
     {
         public void Chop(string target)
         {
-            Console.WriteLine("Chopped {0} hard...", target);
+            Console.WriteLine("Chopped {0} hard with a bronze sword #{1}...", target, this.GetHashCode());
         }
     }
 }
